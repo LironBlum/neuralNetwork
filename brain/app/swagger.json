@@ -1,74 +1,19 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "brain",
-    "description": "API for neural network processing ",
+    "title": "brain ",
+    "description": "API for neural network algorithm",
     "version": "0.0.1"
   },
   "consumes": ["application/json"],
-  "produces": ["application/json","text/html"],
+  "produces": ["application/json"],
   "paths": {
-    "/version": {
-      "x-swagger-router-controller": "monitor",
-      "get": {
-        "operationId": "version",
-        "description": "get the microservice`s version",
-        "responses": {
-          "200": {
-            "description": "microservice`s version",
-            "schema": {
-              "type": "object"
-            }
-          },
-          "default": {
-            "$ref": "#/definitions/ErrorResponse"
-          }
-        }
-      }
-    },
-    "/ping": {
-      "x-swagger-router-controller": "monitor",
-      "get": {
-        "operationId": "ping",
-        "description": "ping the the microservice",
-        "responses": {
-          "200": {
-            "description": "is microservice`s up",
-            "schema": {
-              "type": "object"
-            }
-          },
-          "default": {
-            "$ref": "#/definitions/ErrorResponse"
-          }
-        }
-      }
-    },
-    "/getenv": {
-      "x-swagger-router-controller": "monitor",
-      "get": {
-        "operationId": "getenv",
-        "description": "get microservice's environment variables",
-        "responses": {
-          "200": {
-            "description": "environment variables of the microservice",
-            "schema": {
-              "type": "object"
-            }
-          },
-          "default": {
-            "$ref": "#/definitions/ErrorResponse"
-          }
-        }
-      }
-    },
     "/startHere": {
       "x-swagger-router-controller": "brain",
       "get": {
-        "operationId": "startHere",
-         "description": "????? TODO ",
+         "operationId": "brain",
          "responses": {
-            "200": {
+            "200": {          
               "description": "Success",
               "schema": {
                 "type": "object"
@@ -82,8 +27,27 @@
             }
          }
       }
-   }
-
+   },
+   "/playGround": {
+    "x-swagger-router-controller": "playGround",
+    "get": {
+       "operationId": "playGround",
+       "responses": {
+          "200": {          
+            "description": "Success",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "default": {
+             "description": "Error",
+             "schema": {
+                "$ref": "#/definitions/ErrorResponse"
+             }
+          }
+       }
+    }
+  }
   },
   "definitions": {
     "ErrorResponse": {
@@ -96,11 +60,11 @@
         },
         "title": {
           "type": "string",
-          "description": "problem description and data"
+          "description": "problem summary"
         },
         "status": {
           "type": "string",
-          "description": "code "
+          "description": "The HTTP status code"
         }
       }
     }

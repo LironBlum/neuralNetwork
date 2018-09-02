@@ -1,12 +1,11 @@
 version: '2'
 services:
-  blueprint:
+  brain:
     container_name: brain-container
     image: brain-image
     build:
       context: .
     volumes:
-      - /data/log:/log
       - ./:/var/app
     env_file: ./variables.env
     environment:

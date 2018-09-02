@@ -1,0 +1,20 @@
+# dev.dockerfile builds from production images
+FROM cross-product-operations
+# reset permissions back to root for tools installation
+USER root
+# adjust environment for development purposes
+ENV NODE_ENV=development
+# install global and local dev tools
+RUN npm install
+#allow access to user node to all the installed packages
+RUN chown -R node:node /var/app/node_modules
+#expose ports for debugging
+EXPOSE 5858 9229 35729
+#install npm modules in volume mount
+VOLUME /var/app/node_modules
+# reset user back to node, for lowered permissions at runtime
+USER node
+# run in dev/watch mode
+CMD ["npm","run","watch"]
+
+

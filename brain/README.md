@@ -8,17 +8,6 @@ Version | Released Date | Release Notes                                         
 
 
 ## Routes
-monitoring routes
-
-/version
-
-/ping
-
-/vitality
-
-/getenv
-
-microservices app
 
 /????TODO
 

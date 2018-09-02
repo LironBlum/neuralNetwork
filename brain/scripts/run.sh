@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 usage()
  {
- echo "Usage: $0 build/up/down prod/all"
+ echo "Usage: $0 build/up/down"
  exit 1
  }
 if [[ ($# -eq 1 || ($# -eq 2 && $2 == all)) ]]
